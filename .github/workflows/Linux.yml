@@ -1,0 +1,36 @@
+name: Linux
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install packages
+      run: |
+        sudo apt update
+        sudo apt-get install gettext xsltproc qt5-default qttools5-dev qtscript5-dev libapr1-dev libaprutil1-dev libboost-all-dev libgd-dev libgraphite2-dev libharfbuzz-dev libhunspell-dev liblog4cxx-dev libmpfr-dev libmspack-dev libpopt-dev liburiparser-dev libzzip-dev curl libcurl4-openssl-dev
+    - name: Create Build Environment
+      run: cmake -E make_directory ${{github.workspace}}/build
+
+    - name: Configure CMake
+      shell: bash
+      working-directory: ${{github.workspace}}/build
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+
+    - name: Build
+      working-directory: ${{github.workspace}}/build
+      shell: bash
+      run: cmake --build . --config $BUILD_TYPE 

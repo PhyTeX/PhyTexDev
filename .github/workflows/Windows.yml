@@ -1,0 +1,41 @@
+name: Windows
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        modules: 'qtscript'
+
+    - name: Choco help
+      uses: crazy-max/ghaction-chocolatey@v1.4.0
+      with:
+        args: install pandoc mono winflexbison3 boost-msvc-14.2
+        
+    - name: Create Build Environment
+      run: cmake -E make_directory ${{github.workspace}}/build
+
+    - name: Configure CMake
+      shell: bash
+      working-directory: ${{github.workspace}}/build
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DWITH_UI_MFC=OFF -DWITH_MIKTEX_DOC=OFF
+
+    - name: Build
+      working-directory: ${{github.workspace}}/build
+      shell: bash
+      run: cmake --build . --config $BUILD_TYPE
