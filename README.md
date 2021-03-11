@@ -1,4 +1,4 @@
-# MiKTeX ![GitHub repo size](https://img.shields.io/github/repo-size/PhyTex/PhyTex) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PhyTex/PhyTex) #
+# MiKTeX ![GitHub repo size](https://img.shields.io/github/repo-size/PhyTex/PhyTex) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PhyTex/PhyTex) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/PhyTex/PhyTex/Linux) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/PhyTex/PhyTex/MacOS) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/PhyTex/PhyTex/Windows) #
 
 The [MiKTeX Project Page](https://miktex.org) is the place to go, if
 you are new to MiKTeX.
