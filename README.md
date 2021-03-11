@@ -1,4 +1,4 @@
-# MiKTeX
+# MiKTeX ![GitHub repo size](https://img.shields.io/github/repo-size/PhyTex/PhyTex) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PhyTex/PhyTex) #
 
 The [MiKTeX Project Page](https://miktex.org) is the place to go, if
 you are new to MiKTeX.
