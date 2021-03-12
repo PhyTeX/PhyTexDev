@@ -264,12 +264,6 @@ option(
   ${MIKTEX_UNIX_ALIKE}
 )
 
-option(
-  USE_SYSTEM_FRIBIDI
-  "Use the system GNU FriBiDi library."
-  ${MIKTEX_UNIX_ALIKE}
-)
-
 if(MIKTEX_MACOS_BUNDLE)
   set(use_system_gd_default FALSE)
 elseif(MIKTEX_UNIX_ALIKE)
@@ -1135,10 +1129,6 @@ if(USE_SYSTEM_FREETYPE2)
   find_package(Freetype REQUIRED)
 endif()
 
-if(USE_SYSTEM_FRIBIDI)
-  find_package(FRIBIDI REQUIRED)
-endif()
-
 if(USE_SYSTEM_GD)
   find_package(GD REQUIRED)
 endif()
@@ -1720,22 +1710,6 @@ else()
   add_subdirectory(${MIKTEX_REL_FONTCONFIG_DIR})
 endif()
 
-if(USE_SYSTEM_FRIBIDI)
-  get_filename_component(suffix ${FRIBIDI_LIBRARY} EXT)
-  if (suffix STREQUAL CMAKE_SHARED_LIBRARY_SUFFIX)
-    add_library(MiKTeX::Imported::FRIBIDI SHARED IMPORTED)
-  else()
-    add_library(MiKTeX::Imported::FRIBIDI STATIC IMPORTED)
-  endif()
-  set_target_properties(MiKTeX::Imported::FRIBIDI
-    PROPERTIES
-      IMPORTED_LOCATION "${FRIBIDI_LIBRARY}"
-      INTERFACE_INCLUDE_DIRECTORIES "${FRIBIDI_INCLUDE_DIRS}"
-  )
-else()
-  add_subdirectory(${MIKTEX_REL_FRIBIDI_DIR})
-endif()
-
 if(USE_SYSTEM_GLM)
   get_filename_component(suffix ${GLM_LIBRARY} EXT)
   if (suffix STREQUAL CMAKE_SHARED_LIBRARY_SUFFIX)
@@ -2092,7 +2066,6 @@ add_subdirectory(${MIKTEX_REL_EGL_REGISTRY_DIR})
 add_subdirectory(${MIKTEX_REL_EPSTOPDF_DIR})
 add_subdirectory(${MIKTEX_REL_EXTRACTOR_DIR})
 add_subdirectory(${MIKTEX_REL_FINDTEXMF_DIR})
-add_subdirectory(${MIKTEX_REL_FRIBIDIXETEX_DIR})
 add_subdirectory(${MIKTEX_REL_GREGORIO_DIR})
 add_subdirectory(${MIKTEX_REL_GSF2PK_DIR})
 add_subdirectory(${MIKTEX_REL_INIPOOL_DIR})
@@ -2356,7 +2329,7 @@ if(DPKG_SHLIBDEPS_EXECUTABLE)
   set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS TRUE)
 else()
   set(CPACK_DEBIAN_PACKAGE_DEPENDS
-    "${debian_install_dependencies}, ${debian_runtime_dependencies}, libbz2-1.0, libc6 (>= 2.14), libcairo2 (>= 1.2.4), libcurl3-gnutls (>= 7.16.2), libexpat1 (>= 2.0.1), libfontconfig1 (>= 2.11), libfreetype6 (>= 2.3.9), libfribidi0 (>= 0.19.2), libgcc1 (>= 1:4.0), libgd3 (>= 2.1.0~alpha~), libgmp10, libgraphite2-3 (>= 1.2.2), libharfbuzz-icu0 (>= 0.9.9), libharfbuzz0b (>= 1.4.1), libicu57 (>= 57.1-1~), libjpeg62-turbo (>= 1.3.1), liblog4cxx10v5, liblzma5 (>= 5.1.1alpha+20120614), libmpfr4 (>= 3.1.3), libmspack0 (>= 0.4), libpixman-1-0 (>= 0.10.0), libpng16-16 (>= 1.6.2-1), libpoppler57 (>= 0.38.0), libpopt0 (>= 1.14), libssl1.0.2 (>= 1.0.2d), libstdc++6 (>= 6), liburiparser1 (>= 0.6.0), libzzip-0-13 (>= 0.13.56), zlib1g (>= 1:1.1.4)"
+    "${debian_install_dependencies}, ${debian_runtime_dependencies}, libbz2-1.0, libc6 (>= 2.14), libcairo2 (>= 1.2.4), libcurl3-gnutls (>= 7.16.2), libexpat1 (>= 2.0.1), libfontconfig1 (>= 2.11), libfreetype6 (>= 2.3.9), libgcc1 (>= 1:4.0), libgd3 (>= 2.1.0~alpha~), libgmp10, libgraphite2-3 (>= 1.2.2), libharfbuzz-icu0 (>= 0.9.9), libharfbuzz0b (>= 1.4.1), libicu57 (>= 57.1-1~), libjpeg62-turbo (>= 1.3.1), liblog4cxx10v5, liblzma5 (>= 5.1.1alpha+20120614), libmpfr4 (>= 3.1.3), libmspack0 (>= 0.4), libpixman-1-0 (>= 0.10.0), libpng16-16 (>= 1.6.2-1), libpoppler57 (>= 0.38.0), libpopt0 (>= 1.14), libssl1.0.2 (>= 1.0.2d), libstdc++6 (>= 6), liburiparser1 (>= 0.6.0), libzzip-0-13 (>= 0.13.56), zlib1g (>= 1:1.1.4)"
   )
 endif()
 
