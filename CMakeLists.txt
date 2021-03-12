@@ -1025,11 +1025,11 @@ if(WITH_UI_MFC)
 endif()
 
 if(MSVC)
-  list(APPEND required_programs
-    mc
-    midl
-    mt
-  )
+  #list(APPEND required_programs
+  #  mc
+  #  midl
+  #  mt
+  #)
 endif()
 
 if(WITH_BOOTSTRAPPING)
