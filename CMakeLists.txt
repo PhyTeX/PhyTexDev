@@ -74,9 +74,9 @@ project(${MIKTEX_PRODUCT_TAG}
 
 
 include(FetchContent)
-set(SYSTEM_ICU OFF)
-set(BUILD_ICU ON)
-set(ICU_BUILD_VERSION 68.2)
+set(SYSTEM_ICU OFF CACHE INTERNAL "")  # Forces the value
+set(BUILD_ICU ON CACHE INTERNAL "")  # Forces the value
+set(ICU_BUILD_VERSION "68.2" CACHE INTERNAL "")  # Forces the value
 FetchContent_Declare(
   icu-cmake
   GIT_REPOSITORY https://github.com/viaduck/icu-cmake
