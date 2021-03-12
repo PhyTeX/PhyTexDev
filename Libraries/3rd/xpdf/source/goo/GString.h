@@ -11,22 +11,23 @@
 #ifndef GSTRING_H
 #define GSTRING_H
 
-#include <aconf.h>
+//#include <aconf.h>
 
 #ifdef USE_GCC_PRAGMAS
 #pragma interface
 #endif
 
-#include <limits.h> // for LLONG_MAX and ULLONG_MAX
 #include <stdarg.h>
+#include <limits.h> // for LLONG_MAX and ULLONG_MAX
 #include "gtypes.h"
-
+#include <cstddef>
 class GString {
 public:
 
   // Create an empty string.
   GString();
 
+  size_t strlen(const char *str);
   // Create a string from a C string.
   GString(const char *sA);
 
@@ -39,7 +40,7 @@ public:
 
   // Copy a string.
   GString(GString *str);
-  GString *copy() { return new GString(this); }
+  GString* copy();
 
   // Concatenate two strings.
   GString(GString *str1, GString *str2);
@@ -122,8 +123,8 @@ public:
 
 private:
 
-  int length;
-  char *s;
+  int length=0;
+  char *s=NULL;
 
   void resize(int length1);
 #ifdef LLONG_MAX

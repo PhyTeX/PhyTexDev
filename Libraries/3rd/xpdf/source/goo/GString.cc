@@ -19,10 +19,12 @@
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
-#include <limits.h>
+/*#include <limits.h>*/
 #include "gmem.h"
-#include "gmempp.h"
+/*#include "gmempp.h"*/
 #include "GString.h"
+
+#include <stdarg.h>
 
 //------------------------------------------------------------------------
 
@@ -109,22 +111,24 @@ static inline int size(int len) {
   return (len + delta) & ~(delta - 1);
 }
 
-inline void GString::resize(int length1) {
-  char *s1;
-
-  if (length1 < 0) {
+inline void GString::resize(int length1) 
+{
+  if (length1 < 0) 
+  {
     gMemError("GString::resize() with negative length");
   }
-  if (!s) {
-    s = new char[size(length1)];
-  } else if (size(length1) != size(length)) {
-    s1 = new char[size(length1)];
-    if (length1 < length) {
-      memcpy(s1, s, length1);
-      s1[length1] = '\0';
-    } else {
-      memcpy(s1, s, length + 1);
-    }
+  if(!s) 
+  {
+    s = new char[length1];
+  } 
+  else if (length1 < length) 
+  {
+    s[length1] = '\0';
+  } 
+  else if (length1 > length)
+  {
+    char* s1 = new char[length1];
+    memcpy(s1, s, length + 1);
     delete[] s;
     s = s1;
   }
@@ -132,35 +136,57 @@ inline void GString::resize(int length1) {
 
 GString::GString() {
   s = NULL;
-  resize(length = 0);
+  length = 0;
+  resize(length);
   s[0] = '\0';
 }
 
-GString::GString(const char *sA) {
-  int n = (int)strlen(sA);
+size_t GString::strlen(const char *str)
+{
+    const char *s;
+
+    for (s = str; *s; ++s)
+        ;
+    return (s - str);
+}
+
+
+GString* GString::copy() 
+{ 
+  GString* ret= new GString(this);
+  return ret;
+}
+
+GString::GString(const char *sA) 
+{
+  int n = GString::strlen(sA);
 
   s = NULL;
-  resize(length = n);
+  length = n;
+  resize(n);
   memcpy(s, sA, n + 1);
 }
 
 GString::GString(const char *sA, int lengthA) {
   s = NULL;
-  resize(length = lengthA);
+  length = lengthA;
+  //resize(lengthA);
   memcpy(s, sA, length * sizeof(char));
   s[length] = '\0';
 }
 
 GString::GString(GString *str, int idx, int lengthA) {
   s = NULL;
-  resize(length = lengthA);
+  length = lengthA;
+  //resize(lengthA);
   memcpy(s, str->getCString() + idx, length);
   s[length] = '\0';
 }
 
 GString::GString(GString *str) {
   s = NULL;
-  resize(length = str->getLength());
+  length = str->getLength();
+  //resize(str->getLength());
   memcpy(s, str->getCString(), length + 1);
 }
 
