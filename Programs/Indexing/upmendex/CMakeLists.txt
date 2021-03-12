@@ -102,12 +102,7 @@ if(MIKTEX_NATIVE_WINDOWS)
   )
 endif()
 
-if(USE_SYSTEM_ICU)
-  target_link_libraries(${MIKTEX_PREFIX}upmendex ICU::i18n)
-  target_link_libraries(${MIKTEX_PREFIX}upmendex ICU::uc)
-else()
-  # not an option
-endif()
+target_link_libraries(${MIKTEX_PREFIX}upmendex icu)
 
 install(TARGETS ${MIKTEX_PREFIX}upmendex DESTINATION ${MIKTEX_BINARY_DESTINATION_DIR})
 

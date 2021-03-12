@@ -131,7 +131,7 @@ target_link_libraries(${MIKTEX_PREFIX}bibtexu
   ${app_dll_name}
   ${core_dll_name}
   ${kpsemu_dll_name}
-  ${ICU_LIBRARIES}
+  icu
 )
 
 if(MIKTEX_NATIVE_WINDOWS)

@@ -20,7 +20,9 @@
 ###############################################################################
 ## CMake controls
 
-cmake_minimum_required(VERSION 3.12.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.15.0 FATAL_ERROR)
+
+
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -69,6 +71,18 @@ endif()
 project(${MIKTEX_PRODUCT_TAG}
   VERSION ${miktex_project_version}
 )
+
+
+include(FetchContent)
+set(SYSTEM_ICU OFF)
+set(BUILD_ICU ON)
+set(ICU_BUILD_VERSION 68.2)
+FetchContent_Declare(
+  icu-cmake
+  GIT_REPOSITORY https://github.com/viaduck/icu-cmake
+  GIT_TAG        master
+)
+FetchContent_MakeAvailable(icu-cmake)
 
 ###############################################################################
 ## global C/C++ options
@@ -316,10 +330,11 @@ option(
 )
 
 # we always depend on the system ICU development files
-set(
-  USE_SYSTEM_ICU
-  TRUE
-)
+#set(
+#  USE_SYSTEM_ICU
+#  TRUE
+#)
+
 
 option(
   USE_SYSTEM_JPEG
@@ -1150,9 +1165,9 @@ if(USE_SYSTEM_HUNSPELL)
   find_package(HUNSPELL REQUIRED)
 endif()
 
-if(USE_SYSTEM_ICU)
-  find_package(ICU REQUIRED COMPONENTS i18n uc)
-endif()
+#if(USE_SYSTEM_ICU)
+#  find_package(ICU REQUIRED COMPONENTS i18n uc)
+#endif()
 
 if(USE_SYSTEM_JPEG)
   find_package(JPEG REQUIRED)

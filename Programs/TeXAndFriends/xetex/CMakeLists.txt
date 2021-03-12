@@ -283,12 +283,7 @@ else()
   target_link_libraries(${xetex_target_name} PRIVATE ${harfbuzz_dll_name})
 endif()
 
-if(USE_SYSTEM_ICU)
-  target_link_libraries(${xetex_target_name} PRIVATE ICU::i18n)
-  target_link_libraries(${xetex_target_name} PRIVATE ICU::uc)
-else()
-  # not an option
-endif()
+target_link_libraries(${xetex_target_name} PRIVATE icu)
 
 if(USE_SYSTEM_JPEG)
   target_link_libraries(${xetex_target_name} PRIVATE MiKTeX::Imported::JPEG)
