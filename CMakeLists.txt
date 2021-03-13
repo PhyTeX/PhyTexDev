@@ -72,18 +72,6 @@ project(${MIKTEX_PRODUCT_TAG}
   VERSION ${miktex_project_version}
 )
 
-
-include(FetchContent)
-set(SYSTEM_ICU OFF CACHE INTERNAL "")  # Forces the value
-set(BUILD_ICU ON CACHE INTERNAL "")  # Forces the value
-set(ICU_BUILD_VERSION "68.2" CACHE INTERNAL "")  # Forces the value
-FetchContent_Declare(
-  icu-cmake
-  GIT_REPOSITORY https://github.com/viaduck/icu-cmake
-  GIT_TAG        master
-)
-FetchContent_MakeAvailable(icu-cmake)
-
 ###############################################################################
 ## global C/C++ options
 
@@ -1013,11 +1001,10 @@ if(WITH_UI_MFC)
 endif()
 
 if(MSVC)
-  #list(APPEND required_programs
-  #  mc
-  #  midl
-  #  mt
-  #)
+  list(APPEND required_programs
+    mc
+    midl
+    mt)
 endif()
 
 if(WITH_BOOTSTRAPPING)
@@ -1048,8 +1035,6 @@ endif()
 
 find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED)
-#not needed: find_package(ImageMagick REQUIRED)
-#not needed: find_package(PythonInterp REQUIRED)
 find_package(Threads REQUIRED)
 
 if(MIKTEX_MACOS_BUNDLE)
@@ -2023,8 +2008,6 @@ add_subdirectory(${MIKTEX_REL_APP_DIR})
 add_subdirectory(${MIKTEX_REL_AUTOSP_DIR})
 add_subdirectory(${MIKTEX_REL_AXOHELP_DIR})
 add_subdirectory(${MIKTEX_REL_BIBARTS_DIR})
-add_subdirectory(${MIKTEX_REL_BIBTEXX_DIR})
-add_subdirectory(${MIKTEX_REL_BIBTEX_DIR})
 add_subdirectory(${MIKTEX_REL_BUILD_TOOLS_ETC_DIR})
 add_subdirectory(${MIKTEX_REL_C4P_DIR})
 add_subdirectory(${MIKTEX_REL_CFG_DIR})
@@ -2037,11 +2020,6 @@ add_subdirectory(${MIKTEX_REL_CWEB_DIR})
 add_subdirectory(${MIKTEX_REL_DEFAULTS_DIR})
 add_subdirectory(${MIKTEX_REL_DEVNAG_DIR})
 add_subdirectory(${MIKTEX_REL_DOC_DIR})
-#add_subdirectory(${MIKTEX_REL_DVICOPY_DIR})
-#add_subdirectory(${MIKTEX_REL_DVIPDFMX_DIR})
-#add_subdirectory(${MIKTEX_REL_DVIPNG_DIR})
-#add_subdirectory(${MIKTEX_REL_DVIPS_DIR})
-#add_subdirectory(${MIKTEX_REL_DVISVGM_DIR})
 add_subdirectory(${MIKTEX_REL_EGL_REGISTRY_DIR})
 add_subdirectory(${MIKTEX_REL_EPSTOPDF_DIR})
 add_subdirectory(${MIKTEX_REL_EXTRACTOR_DIR})
@@ -2062,8 +2040,6 @@ add_subdirectory(${MIKTEX_REL_MAKEINDEX_DIR})
 add_subdirectory(${MIKTEX_REL_MAKEX_DIR})
 add_subdirectory(${MIKTEX_REL_MD5WALK_DIR})
 add_subdirectory(${MIKTEX_REL_MD5_DIR})
-add_subdirectory(${MIKTEX_REL_MFWARE_DIR})
-add_subdirectory(${MIKTEX_REL_MF_DIR})
 add_subdirectory(${MIKTEX_REL_MIKTEXSETUP_DIR})
 add_subdirectory(${MIKTEX_REL_MKFNTMAP_DIR})
 add_subdirectory(${MIKTEX_REL_MPMLIB_DIR})
@@ -2073,8 +2049,6 @@ add_subdirectory(${MIKTEX_REL_MTHELP_DIR})
 add_subdirectory(${MIKTEX_REL_NLOHMANN_JSON_DIR})
 add_subdirectory(${MIKTEX_REL_OPENGL_REGISTRY_DIR})
 add_subdirectory(${MIKTEX_REL_PADOUT_DIR})
-add_subdirectory(${MIKTEX_REL_PATGEN_DIR})
-add_subdirectory(${MIKTEX_REL_PDFTEX_DIR})
 add_subdirectory(${MIKTEX_REL_PMX_DIR})
 add_subdirectory(${MIKTEX_REL_POPT_WRAPPER_DIR})
 add_subdirectory(${MIKTEX_REL_PPLIB_DIR})
@@ -2089,21 +2063,15 @@ add_subdirectory(${MIKTEX_REL_TECKIT_DIR})
 add_subdirectory(${MIKTEX_REL_TEX4HT_DIR})
 add_subdirectory(${MIKTEX_REL_TEXIFY_DIR})
 add_subdirectory(${MIKTEX_REL_TEXMF_DIR})
-add_subdirectory(${MIKTEX_REL_TEXWARE_DIR})
-add_subdirectory(${MIKTEX_REL_TEX_DIR})
 add_subdirectory(${MIKTEX_REL_TIE_DIR})
 add_subdirectory(${MIKTEX_REL_TOUCH_DIR})
 add_subdirectory(${MIKTEX_REL_TRACE_DIR})
 add_subdirectory(${MIKTEX_REL_TTF2PK2_DIR})
-add_subdirectory(${MIKTEX_REL_UPMENDEX_DIR})
 add_subdirectory(${MIKTEX_REL_UTIL_DIR})
 add_subdirectory(${MIKTEX_REL_W2CEMU_DIR})
 add_subdirectory(${MIKTEX_REL_WEB2C_DIR})
-add_subdirectory(${MIKTEX_REL_WEB_DIR})
-add_subdirectory(${MIKTEX_REL_XETEX_DIR})
 add_subdirectory(${MIKTEX_REL_XINDY_DIR})
 add_subdirectory(${MIKTEX_REL_XML2PMX_DIR})
-add_subdirectory(${MIKTEX_REL_XPDF_DIR})
 
 if(WITH_ASYMPTOTE)
   add_subdirectory(${MIKTEX_REL_ASYMPTOTE_DIR})
