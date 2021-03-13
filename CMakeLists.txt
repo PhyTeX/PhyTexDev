@@ -978,11 +978,8 @@ if(MIKTEX_NATIVE_WINDOWS)
 endif()
 
 set(required_programs
-  cat
-  diff
   msgfmt
   msgmerge
-  sed
   xgettext
   xsltproc
 )
@@ -1133,10 +1130,6 @@ endif()
 if(USE_SYSTEM_HUNSPELL)
   find_package(HUNSPELL REQUIRED)
 endif()
-
-#if(USE_SYSTEM_ICU)
-#  find_package(ICU REQUIRED COMPONENTS i18n uc)
-#endif()
 
 if(USE_SYSTEM_JPEG)
   find_package(JPEG REQUIRED)
