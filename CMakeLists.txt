@@ -18,15 +18,11 @@
 ## USA.
 
 ###############################################################################
-## CMake controls
-
 cmake_minimum_required(VERSION 3.15.0 FATAL_ERROR)
-
-
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/modules")
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_SOURCE_DIR}/cmake")
 
 set(CMAKE_LINK_DEPENDS_NO_SHARED 1)
 
@@ -77,10 +73,11 @@ project(${MIKTEX_PRODUCT_TAG}
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED TRUE)
+set(CMAKE_C_EXTENSIONS ON)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
-
+set(CMAKE_CXX_EXTENSIONS OFF)
 ###############################################################################
 ## system type
 
@@ -304,13 +301,6 @@ option(
   "Use the system Hunspell spell checker library."
   ${MIKTEX_UNIX_ALIKE}
 )
-
-# we always depend on the system ICU development files
-#set(
-#  USE_SYSTEM_ICU
-#  TRUE
-#)
-
 
 option(
   USE_SYSTEM_JPEG
@@ -1572,7 +1562,7 @@ if(USE_SYSTEM_PIXMAN)
   if (suffix STREQUAL CMAKE_SHARED_LIBRARY_SUFFIX)
     add_library(MiKTeX::Imported::PIXMAN SHARED IMPORTED)
   else()
-    add_library(MiKTeX::Imported::PIXMAN STATIC IMPORTED)
+   add_library(MiKTeX::Imported::PIXMAN STATIC IMPORTED)
   endif()
   set_target_properties(MiKTeX::Imported::PIXMAN
     PROPERTIES
@@ -1682,22 +1672,6 @@ if(USE_SYSTEM_FONTCONFIG)
   )
 else()
   add_subdirectory(${MIKTEX_REL_FONTCONFIG_DIR})
-endif()
-
-if(USE_SYSTEM_GLM)
-  get_filename_component(suffix ${GLM_LIBRARY} EXT)
-  if (suffix STREQUAL CMAKE_SHARED_LIBRARY_SUFFIX)
-    add_library(MiKTeX::Imported::GLM SHARED IMPORTED)
-  else()
-    add_library(MiKTeX::Imported::GLM STATIC IMPORTED)
-  endif()
-  set_target_properties(MiKTeX::Imported::GLM
-    PROPERTIES
-      IMPORTED_LOCATION "${GLM_LIBRARY}"
-      INTERFACE_INCLUDE_DIRECTORIES "${GLM_INCLUDE_DIRS}"
-  )
-else()
-  add_subdirectory(${MIKTEX_REL_GLM_DIR})
 endif()
 
 if(USE_SYSTEM_JPEG)
