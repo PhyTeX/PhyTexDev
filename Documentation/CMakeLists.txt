@@ -231,60 +231,60 @@ endif()
 
 ## help file
 
-if(WITH_MIKTEX_DOC)
-  add_custom_command(
-    OUTPUT
-      ${CMAKE_CURRENT_BINARY_DIR}/miktex.chm
-    COMMAND
-      ${CMAKE_COMMAND} -E
-        remove_directory ${CMAKE_CURRENT_BINARY_DIR}/scratch
-    COMMAND
-      ${CMAKE_COMMAND} -E
-        copy_directory ${CMAKE_SOURCE_DIR}/${MIKTEX_REL_DOCBOOK_XSL_DIR}/images ${CMAKE_CURRENT_BINARY_DIR}/scratch/images
-    COMMAND
-      ${CMAKE_COMMAND} -E
-        copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/Images ${CMAKE_CURRENT_BINARY_DIR}/scratch/images
-    COMMAND
-      ${CMAKE_COMMAND} -E
-        copy ${MIKTEX_HELP_STYLES} ${CMAKE_CURRENT_BINARY_DIR}/scratch
-    COMMAND
-      ${CMAKE_COMMAND} -E env "XML_CATALOG_FILES=${MIKTEX_XML_CATALOG_FILE}"
-        ${XSLTPROC_EXECUTABLE}
-          --xinclude
-          --path "${xslt_path}"
-          --stringparam base.dir scratch/
-          --stringparam chunk.fast 1
-          --stringparam manifest.in.base.dir 1
-          htmlhelp.xsl
-          manual.xml
-    COMMAND
-      ${CMAKE_COMMAND} -E
-        copy ${MIKTEX_CORE_CONTEXT_HELP} ${CMAKE_CURRENT_BINARY_DIR}/scratch/context.h
-    COMMAND
-      ${CMAKE_COMMAND} -E
-        chdir ${CMAKE_CURRENT_BINARY_DIR}/scratch ${HHC_EXECUTABLE_WRAPPER} htmlhelp
-    COMMAND
-      ${CMAKE_COMMAND} -E
-        copy ${CMAKE_CURRENT_BINARY_DIR}/scratch/htmlhelp.chm ${CMAKE_CURRENT_BINARY_DIR}/miktex.chm
-    WORKING_DIRECTORY
-      ${CMAKE_CURRENT_BINARY_DIR}
-    DEPENDS
-      ${CMAKE_CURRENT_BINARY_DIR}/entities.ent
-      ${MIKTEX_CORE_CONTEXT_HELP}
-      ${MIKTEX_DOCBOOK_HTMLHELP}
-      ${manual_listings}
-      ${manual_xml_files}
-      ${MIKTEX_HELP_STYLES}
-      ${screenshots_png}
-    VERBATIM
-  )
-  install(
-    FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/miktex.chm
-    DESTINATION
-      ${MIKTEX_DOC_DESTINATION_DIR}
-  )
-endif()
+#if(WITH_MIKTEX_DOC)
+  #add_custom_command(
+  #  OUTPUT
+  #    ${CMAKE_CURRENT_BINARY_DIR}/miktex.chm
+  #  COMMAND
+  #    ${CMAKE_COMMAND} -E
+  #      remove_directory ${CMAKE_CURRENT_BINARY_DIR}/scratch
+  #  COMMAND
+  #    ${CMAKE_COMMAND} -E
+  #      copy_directory ${CMAKE_SOURCE_DIR}/${MIKTEX_REL_DOCBOOK_XSL_DIR}/images ${CMAKE_CURRENT_BINARY_DIR}/scratch/images
+  #  COMMAND
+  #    ${CMAKE_COMMAND} -E
+  #      copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/Images ${CMAKE_CURRENT_BINARY_DIR}/scratch/images
+  #  COMMAND
+  #    ${CMAKE_COMMAND} -E
+  #      copy ${MIKTEX_HELP_STYLES} ${CMAKE_CURRENT_BINARY_DIR}/scratch
+  #  COMMAND
+  #    ${CMAKE_COMMAND} -E env "XML_CATALOG_FILES=${MIKTEX_XML_CATALOG_FILE}"
+  #      ${XSLTPROC_EXECUTABLE}
+  #        --xinclude
+  #        --path "${xslt_path}"
+  #        --stringparam base.dir scratch/
+  #        --stringparam chunk.fast 1
+  #        --stringparam manifest.in.base.dir 1
+  #        htmlhelp.xsl
+  #        manual.xml
+  #  COMMAND
+  #    ${CMAKE_COMMAND} -E
+  #      copy ${MIKTEX_CORE_CONTEXT_HELP} ${CMAKE_CURRENT_BINARY_DIR}/scratch/context.h
+  #  COMMAND
+  #    ${CMAKE_COMMAND} -E
+  #      chdir ${CMAKE_CURRENT_BINARY_DIR}/scratch ${HHC_EXECUTABLE_WRAPPER} htmlhelp
+  #  COMMAND
+  #    ${CMAKE_COMMAND} -E
+  #      copy ${CMAKE_CURRENT_BINARY_DIR}/scratch/htmlhelp.chm ${CMAKE_CURRENT_BINARY_DIR}/miktex.chm
+  #  WORKING_DIRECTORY
+  #    ${CMAKE_CURRENT_BINARY_DIR}
+  #  DEPENDS
+  #    ${CMAKE_CURRENT_BINARY_DIR}/entities.ent
+  #    ${MIKTEX_CORE_CONTEXT_HELP}
+  #    ${MIKTEX_DOCBOOK_HTMLHELP}
+  #    ${manual_listings}
+  #    ${manual_xml_files}
+  #    ${MIKTEX_HELP_STYLES}
+  #    ${screenshots_png}
+  #  VERBATIM
+  #)
+  #install(
+  #  FILES
+  #    ${CMAKE_CURRENT_BINARY_DIR}/miktex.chm
+  #  DESTINATION
+  #    ${MIKTEX_DOC_DESTINATION_DIR}
+  #)
+#endif()
 
 ## chunked html
 
@@ -494,11 +494,11 @@ if(WITH_MIKTEX_DOC)
       ${CMAKE_CURRENT_BINARY_DIR}/miktex.pdf
   )
   set_property(TARGET gen-pdf PROPERTY FOLDER ${MIKTEX_CURRENT_FOLDER})
-  add_custom_target(gen-miktex-help ALL
-    DEPENDS
-      ${CMAKE_CURRENT_BINARY_DIR}/miktex.chm
-  )
-  set_property(TARGET gen-miktex-help PROPERTY FOLDER ${MIKTEX_CURRENT_FOLDER})  
+  #add_custom_target(gen-miktex-help ALL
+  #  DEPENDS
+  #    ${CMAKE_CURRENT_BINARY_DIR}/miktex.chm
+  #)
+  #set_property(TARGET gen-miktex-help PROPERTY FOLDER ${MIKTEX_CURRENT_FOLDER})  
   add_custom_target(gen-COPYING-rtf
     DEPENDS
       ${MIKTEX_COPYING_CONDITIONS_RTF}
