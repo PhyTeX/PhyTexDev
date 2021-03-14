@@ -53,11 +53,14 @@ else()
   target_link_libraries(luatex-luamisc-objects PUBLIC ${zzip_dll_name})
 endif()
 
+target_include_directories(luatex-luamisc-objects PRIVATE "${pplib_SOURCE_DIR}/src" PRIVATE  "${pplib_SOURCE_DIR}/src/util")
+
 target_link_libraries(luatex-luamisc-objects
   PUBLIC
     ${core_dll_name}
     ${lua53_target_name}
-    ${pplib_lib_name}
+    pplib
+    
 )
 
 if(MIKTEX_NATIVE_WINDOWS)

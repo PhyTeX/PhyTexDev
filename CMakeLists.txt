@@ -78,11 +78,19 @@ FetchContent_MakeAvailable(spdlog)
 
 set(JSON_BuildTests OFF)
 FetchContent_Declare(
+  pplib
+  GIT_REPOSITORY https://github.com/PhyTeX/pplib.git
+  GIT_TAG        master
+)
+FetchContent_MakeAvailable(pplib)
+
+FetchContent_Declare(
   json
   GIT_REPOSITORY https://github.com/PhyTeX/json.git
   GIT_TAG        v3.9.1
 )
 FetchContent_MakeAvailable(json)
+
 
 ###############################################################################
 ## global C/C++ options
@@ -1997,12 +2005,11 @@ add_subdirectory(${MIKTEX_REL_MPMLIB_DIR})
 add_subdirectory(${MIKTEX_REL_MPM_DIR})
 add_subdirectory(${MIKTEX_REL_MP_DIR})
 add_subdirectory(${MIKTEX_REL_MTHELP_DIR})
-#add_subdirectory(${MIKTEX_REL_NLOHMANN_JSON_DIR})
 add_subdirectory(${MIKTEX_REL_OPENGL_REGISTRY_DIR})
 add_subdirectory(${MIKTEX_REL_PADOUT_DIR})
 add_subdirectory(${MIKTEX_REL_PMX_DIR})
 add_subdirectory(${MIKTEX_REL_POPT_WRAPPER_DIR})
-add_subdirectory(${MIKTEX_REL_PPLIB_DIR})
+#add_subdirectory(${MIKTEX_REL_PPLIB_DIR})
 add_subdirectory(${MIKTEX_REL_PROGRAMS_ETC_DIR})
 add_subdirectory(${MIKTEX_REL_PSUTILS_DIR})
 add_subdirectory(${MIKTEX_REL_RES_DIR})

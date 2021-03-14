@@ -87,7 +87,7 @@ endif()
 
 list(APPEND common_engine_libs
   ${lua53_target_name}
-  ${pplib_lib_name}
+  pplib
   luatex-common-engine-objects
   luatex-luafontforge-objects
   luatex-luaffi-objects

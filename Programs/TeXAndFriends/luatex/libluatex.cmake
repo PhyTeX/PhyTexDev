@@ -264,6 +264,8 @@ target_include_directories(luatex-common-engine-objects
     source/luafontloader/fontforge/fontforge
     source/luafontloader/fontforge/inc
     source/utils
+    ${pplib_SOURCE_DIR}/src
+    ${pplib_SOURCE_DIR}/src/util
 )
 
 if(USE_SYSTEM_PNG)
@@ -284,7 +286,7 @@ target_link_libraries(luatex-common-engine-objects
     ${kpsemu_dll_name}
     ${lua53_target_name}
     ${metapost_dll_name}
-    ${pplib_lib_name}
+    pplib
     ${w2cemu_dll_name}
     luatex-luafontforge-objects
     luatex-luamisc-objects
