@@ -71,11 +71,7 @@ else()
   target_link_libraries(${texmf_dll_name} PRIVATE ${bzip2_dll_name})
 endif()
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${texmf_dll_name} PRIVATE MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${texmf_dll_name} PRIVATE ${fmt_dll_name})
-endif()
+target_link_libraries(${texmf_dll_name} PRIVATE spdlog)
 
 if(USE_SYSTEM_ZLIB)
   target_link_libraries(${texmf_dll_name} PRIVATE MiKTeX::Imported::ZLIB)

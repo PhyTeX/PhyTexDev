@@ -605,11 +605,7 @@ target_link_libraries(${MIKTEX_PREFIX}mpost
   ${w2cemu_dll_name}
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PREFIX}mpost MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PREFIX}mpost ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PREFIX}mpost spdlog)
 
 if(MIKTEX_NATIVE_WINDOWS)
   target_link_libraries(${MIKTEX_PREFIX}mpost

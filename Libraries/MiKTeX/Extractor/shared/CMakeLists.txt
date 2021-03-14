@@ -49,11 +49,7 @@ target_include_directories(${extractor_dll_name}
     ${public_include_directories}
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${extractor_dll_name} PRIVATE MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${extractor_dll_name} PRIVATE ${fmt_dll_name})
-endif()
+target_link_libraries(${extractor_dll_name} PRIVATE spdlog)
 
 if(USE_SYSTEM_MSPACK)
   target_link_libraries(${extractor_dll_name} PRIVATE MiKTeX::Imported::MSPACK)

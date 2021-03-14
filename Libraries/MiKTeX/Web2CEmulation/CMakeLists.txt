@@ -99,11 +99,7 @@ if(NOT LINK_EVERYTHING_STATICALLY)
     )
   endif()
 
-  if(USE_SYSTEM_FMT)
-    target_link_libraries(${w2cemu_dll_name} PRIVATE MiKTeX::Imported::FMT)
-  else()
-    target_link_libraries(${w2cemu_dll_name} PRIVATE ${fmt_dll_name})
-  endif()
+  target_link_libraries(${w2cemu_dll_name} PRIVATE spdlog)
 
   install(TARGETS ${w2cemu_dll_name}
     RUNTIME DESTINATION "${MIKTEX_BINARY_DESTINATION_DIR}"

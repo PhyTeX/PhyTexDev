@@ -75,11 +75,7 @@ target_link_libraries(${dib_dll_name}
     ${core_dll_name}
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${dib_dll_name} PRIVATE MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${dib_dll_name} PRIVATE ${fmt_dll_name})
-endif()
+target_link_libraries(${dib_dll_name} PRIVATE spdlog)
 
 set(chunkdib_sources chunkdib.cpp)
 
@@ -103,11 +99,7 @@ target_link_libraries(chunkdib
   miktex-popt-wrapper
 )  
 
-if (USE_SYSTEM_FMT)
-  target_link_libraries(chunkdib MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(chunkdib ${fmt_dll_name})
-endif()
+target_link_libraries(chunkdib spdlog)
 
 install(TARGETS ${dib_dll_name} chunkdib
   RUNTIME DESTINATION "${MIKTEX_BINARY_DESTINATION_DIR}"

@@ -57,11 +57,7 @@ target_include_directories(${app_dll_name}
     ${public_include_directories}
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${app_dll_name} PRIVATE MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${app_dll_name} PRIVATE ${fmt_dll_name})
-endif()
+target_link_libraries(${app_dll_name} PRIVATE spdlog)
 
 if(USE_SYSTEM_LOG4CXX)
   target_link_libraries(${app_dll_name} PRIVATE MiKTeX::Imported::LOG4CXX)

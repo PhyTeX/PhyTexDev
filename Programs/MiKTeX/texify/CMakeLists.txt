@@ -58,11 +58,7 @@ target_link_libraries(${MIKTEX_PROG_NAME_TEXIFY}
     miktex-popt-wrapper
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PROG_NAME_TEXIFY} MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PROG_NAME_TEXIFY} ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PROG_NAME_TEXIFY} spdlog)
 
 if(MIKTEX_NATIVE_WINDOWS)
   target_link_libraries(${MIKTEX_PROG_NAME_TEXIFY}

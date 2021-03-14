@@ -58,11 +58,7 @@ target_include_directories(${trace_dll_name}
     ${public_include_directories}
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${trace_dll_name} PRIVATE MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${trace_dll_name} PRIVATE ${fmt_dll_name})
-endif()
+target_link_libraries(${trace_dll_name} PRIVATE spdlog)
 
 target_link_libraries(${trace_dll_name}
   PRIVATE

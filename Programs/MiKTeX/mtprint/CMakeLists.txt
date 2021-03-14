@@ -56,10 +56,6 @@ target_link_libraries(${MIKTEX_PROG_NAME_MTPRINT}
   miktex-popt-wrapper
 )
 
-if (USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PROG_NAME_MTPRINT} MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PROG_NAME_MTPRINT} ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PROG_NAME_MTPRINT} spdlog)
 
 install(TARGETS ${MIKTEX_PROG_NAME_MTPRINT} DESTINATION ${MIKTEX_BINARY_DESTINATION_DIR})

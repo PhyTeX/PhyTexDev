@@ -51,11 +51,7 @@ add_executable(${MIKTEX_PROG_NAME_FINDTEXMF} ${findtexmf_sources})
 
 set_property(TARGET ${MIKTEX_PROG_NAME_FINDTEXMF} PROPERTY FOLDER ${MIKTEX_CURRENT_FOLDER})
 
-if (USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PROG_NAME_FINDTEXMF} MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PROG_NAME_FINDTEXMF} ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PROG_NAME_FINDTEXMF} spdlog)
 
 target_link_libraries(${MIKTEX_PROG_NAME_FINDTEXMF}
   ${app_dll_name}

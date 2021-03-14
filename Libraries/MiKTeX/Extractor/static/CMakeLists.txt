@@ -39,11 +39,7 @@ else()
   target_link_libraries(${extractor_lib_name} PUBLIC ${bzip2_lib_name})
 endif()
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${extractor_lib_name} PUBLIC MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${extractor_lib_name} PUBLIC ${fmt_lib_name})
-endif()
+target_link_libraries(${extractor_lib_name} PUBLIC spdlog)
 
 if(USE_SYSTEM_MSPACK)
   target_link_libraries(${extractor_lib_name} PUBLIC MiKTeX::Imported::MSPACK)

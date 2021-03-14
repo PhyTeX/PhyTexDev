@@ -66,11 +66,7 @@ add_executable(${MIKTEX_PROG_NAME_MTHELP} ${mthelp_sources})
 
 set_property(TARGET ${MIKTEX_PROG_NAME_MTHELP} PROPERTY FOLDER ${MIKTEX_CURRENT_FOLDER})
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PROG_NAME_MTHELP} MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PROG_NAME_MTHELP} ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PROG_NAME_MTHELP} spdlog)
 
 target_link_libraries(${MIKTEX_PROG_NAME_MTHELP}
   ${app_dll_name}

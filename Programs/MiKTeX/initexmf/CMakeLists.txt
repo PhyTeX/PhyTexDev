@@ -86,11 +86,7 @@ else()
   target_link_libraries(${MIKTEX_PROG_NAME_INITEXMF} ${log4cxx_dll_name})
 endif()
 
-if (USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PROG_NAME_INITEXMF} MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PROG_NAME_INITEXMF} ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PROG_NAME_INITEXMF} spdlog)
 
 target_link_libraries(${MIKTEX_PROG_NAME_INITEXMF}
   ${core_dll_name}

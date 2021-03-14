@@ -49,11 +49,7 @@ target_link_libraries(${setup_lib_name}
     ${nlohmann_json_lib_name}
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${setup_lib_name} PRIVATE MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${setup_lib_name} PRIVATE ${fmt_lib_name})
-endif()
+target_link_libraries(${setup_lib_name} PRIVATE spdlog)
 
 target_link_libraries(${setup_lib_name}
   PRIVATE 

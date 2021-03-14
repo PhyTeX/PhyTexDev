@@ -52,11 +52,7 @@ target_link_libraries(mpc
   miktex-popt-wrapper
 )
 
-if (USE_SYSTEM_FMT)
-  target_link_libraries(mpc MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(mpc ${fmt_dll_name})
-endif()
+target_link_libraries(mpc spdlog)
 
 if(MIKTEX_NATIVE_WINDOWS)
   target_link_libraries(mpc

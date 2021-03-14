@@ -58,11 +58,7 @@ add_executable(${MIKTEX_PROG_NAME_MKFNTMAP} ${mkfntmap_sources})
 
 set_property(TARGET ${MIKTEX_PROG_NAME_MKFNTMAP} PROPERTY FOLDER ${MIKTEX_CURRENT_FOLDER})
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PROG_NAME_MKFNTMAP} MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PROG_NAME_MKFNTMAP} ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PROG_NAME_MKFNTMAP} spdlog)
 
 if(USE_SYSTEM_LOG4CXX)
   target_link_libraries(${MIKTEX_PROG_NAME_MKFNTMAP} MiKTeX::Imported::LOG4CXX)

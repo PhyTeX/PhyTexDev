@@ -33,8 +33,5 @@ target_link_libraries(luatex-miktex-objects
     ${kpsemu_dll_name}
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(luatex-miktex-objects PUBLIC MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(luatex-miktex-objects PUBLIC ${fmt_dll_name})
-endif()
+
+target_link_libraries(luatex-miktex-objects PUBLIC spdlog)

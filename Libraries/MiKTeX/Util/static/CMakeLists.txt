@@ -33,10 +33,6 @@ target_include_directories(${util_lib_name}
     ${public_include_directories}
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${util_lib_name} PRIVATE MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${util_lib_name} PRIVATE ${fmt_lib_name})
-endif()
+target_link_libraries(${util_lib_name} PRIVATE spdlog)
 
 source_group(Public FILES ${public_headers})

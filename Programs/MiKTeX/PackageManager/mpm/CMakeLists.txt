@@ -58,11 +58,7 @@ add_executable(${MIKTEX_PROG_NAME_MPM} ${mpm_sources})
 
 set_property(TARGET ${MIKTEX_PROG_NAME_MPM} PROPERTY FOLDER ${MIKTEX_CURRENT_FOLDER})
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PROG_NAME_MPM} MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PROG_NAME_MPM} ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PROG_NAME_MPM} spdlog)
 
 if(USE_SYSTEM_LOG4CXX)
   target_link_libraries(${MIKTEX_PROG_NAME_MPM} MiKTeX::Imported::LOG4CXX)

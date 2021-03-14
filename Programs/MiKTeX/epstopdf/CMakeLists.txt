@@ -48,10 +48,6 @@ target_link_libraries(${MIKTEX_PROG_NAME_EPSTOPDF}
   miktex-popt-wrapper
 )
 
-if(USE_SYSTEM_FMT)
-  target_link_libraries(${MIKTEX_PROG_NAME_EPSTOPDF} MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(${MIKTEX_PROG_NAME_EPSTOPDF} ${fmt_dll_name})
-endif()
+target_link_libraries(${MIKTEX_PROG_NAME_EPSTOPDF} spdlog)
 
 install(TARGETS ${MIKTEX_PROG_NAME_EPSTOPDF} DESTINATION ${MIKTEX_BINARY_DESTINATION_DIR})

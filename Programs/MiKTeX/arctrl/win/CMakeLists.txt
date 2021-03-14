@@ -45,10 +45,6 @@ target_link_libraries(_arctrl
     miktex-popt-wrapper
 )
 
-if (USE_SYSTEM_FMT)
-  target_link_libraries(_arctrl PRIVATE MiKTeX::Imported::FMT)
-else()
-  target_link_libraries(_arctrl PRIVATE ${fmt_dll_name})
-endif()
+target_link_libraries(_arctrl spdlog)
 
 create_dll_wrapper(${MIKTEX_PROG_NAME_ARCTRL} _arctrl arctrlmain)
