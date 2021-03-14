@@ -44,8 +44,7 @@
 #include <miktex/Core/win/ConsoleCodePageSwitcher>
 #endif
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 using namespace MiKTeX::App;
 using namespace MiKTeX::Configuration;

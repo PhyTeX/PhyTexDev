@@ -24,6 +24,7 @@ set(MIKTEX_CURRENT_FOLDER "${MIKTEX_IDE_MIKTEX_LIBRARIES_FOLDER}/texmf")
 include_directories(BEFORE
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
+  ${spdlog_SOURCE_DIR}/include/spdlog
 )
 
 set(public_include_directories

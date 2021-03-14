@@ -51,8 +51,7 @@
 #include <string>
 #include <vector>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 using namespace MiKTeX::App;
 using namespace MiKTeX::Configuration;

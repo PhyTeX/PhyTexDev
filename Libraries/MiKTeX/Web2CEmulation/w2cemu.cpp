@@ -27,8 +27,7 @@
 
 #include <iostream>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Configuration/ConfigNames>
 #include <miktex/Core/BufferSizes>

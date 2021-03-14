@@ -22,8 +22,7 @@
 #include <iostream>
 #include <set>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/CommandLineBuilder>
 #include <miktex/Core/Directory>

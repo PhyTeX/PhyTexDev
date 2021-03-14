@@ -34,8 +34,8 @@
 #include <regex>
 #include <string>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <fmt/fmt.h>
+#include <fmt/ostr.h>
 
 #include <miktex/App/Application>
 #include <miktex/Core/BufferSizes>

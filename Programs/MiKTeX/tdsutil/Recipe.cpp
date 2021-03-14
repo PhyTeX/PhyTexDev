@@ -24,8 +24,7 @@
 #include <iostream>
 #include <unordered_set>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/CommandLineBuilder>
 #include <miktex/Core/Directory>

@@ -69,8 +69,7 @@
 #include <miktex/Core/win/ConsoleCodePageSwitcher>
 #endif
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <regex.h>
 

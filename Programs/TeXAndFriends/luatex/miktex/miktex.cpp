@@ -19,8 +19,7 @@
 
 #include <string>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/App/Application>
 #include <miktex/Configuration/ConfigNames>

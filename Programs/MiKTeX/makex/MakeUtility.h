@@ -27,8 +27,7 @@
 
 #include <log4cxx/logger.h>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/App/Application>
 

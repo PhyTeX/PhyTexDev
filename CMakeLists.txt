@@ -76,6 +76,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(spdlog)
 
+
 ###############################################################################
 ## global C/C++ options
 

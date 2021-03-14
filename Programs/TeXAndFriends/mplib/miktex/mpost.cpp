@@ -20,8 +20,7 @@
 #include <string>
 #include <vector>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/App/Application>
 #include <miktex/Core/Utils>

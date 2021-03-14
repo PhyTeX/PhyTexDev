@@ -38,6 +38,7 @@ include_directories(BEFORE
   ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/source/src
+  ${spdlog_SOURCE_DIR}/include/spdlog
 )
 
 if(MIKTEX_NATIVE_WINDOWS)

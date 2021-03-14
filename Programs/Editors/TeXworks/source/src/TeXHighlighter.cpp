@@ -20,8 +20,7 @@
 */
 
 #if defined(MIKTEX)
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 #include <miktex/miktex-texworks.hpp>
 #endif
 #include <QTextCursor>

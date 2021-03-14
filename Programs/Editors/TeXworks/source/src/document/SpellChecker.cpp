@@ -19,8 +19,7 @@
 	see <http://www.tug.org/texworks/>.
 */
 #if defined(MIKTEX)
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 #include <miktex/Core/AutoResource>
 #include <miktex/miktex-texworks.hpp>
 #endif

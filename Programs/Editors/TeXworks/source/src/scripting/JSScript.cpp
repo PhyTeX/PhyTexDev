@@ -24,8 +24,7 @@
 #define MIKTEX_UTF8_WRAP_ALL 1
 #include <miktex/utf8wrap.h>
 #endif
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 #include <miktex/miktex-texworks.hpp>
 #include <miktex/Trace/StopWatch>
 #endif

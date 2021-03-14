@@ -62,8 +62,7 @@
 #include <miktex/Core/win/ConsoleCodePageSwitcher>
 #endif
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <fmt/ostr.h>
 
 #include <log4cxx/basicconfigurator.h>
 #include <log4cxx/logger.h>

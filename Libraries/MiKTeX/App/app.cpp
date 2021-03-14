@@ -30,8 +30,7 @@
 #include <memory>
 #include <set>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <log4cxx/basicconfigurator.h>
 #include <log4cxx/logger.h>

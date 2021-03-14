@@ -37,7 +37,7 @@
 #include <thread>
 #include <vector>
 
-#include <fmt/format.h>
+#include <spdlog.h>
 
 #include <miktex/App/Application>
 #include <miktex/Core/AutoResource>
