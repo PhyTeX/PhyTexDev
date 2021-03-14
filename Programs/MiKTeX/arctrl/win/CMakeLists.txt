@@ -45,6 +45,6 @@ target_link_libraries(_arctrl
     miktex-popt-wrapper
 )
 
-target_link_libraries(_arctrl spdlog)
+target_link_libraries(_arctrl PRIVATE spdlog)
 
 create_dll_wrapper(${MIKTEX_PROG_NAME_ARCTRL} _arctrl arctrlmain)
