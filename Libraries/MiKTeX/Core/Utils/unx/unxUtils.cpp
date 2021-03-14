@@ -25,8 +25,7 @@
 #  include <sys/utsname.h>
 #endif
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/Directory>
 #include <miktex/Util/PathName>

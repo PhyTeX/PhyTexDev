@@ -29,8 +29,7 @@
 #include <unistd.h>
 #endif
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/File>
 #include <miktex/Core/FileStream>

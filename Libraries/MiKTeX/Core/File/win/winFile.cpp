@@ -25,8 +25,7 @@
 
 #include <io.h>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <thread>
 

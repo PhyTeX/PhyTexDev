@@ -22,8 +22,7 @@
 #include <cstdio>
 #include <cstdlib>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #if defined(HAVE_CONFIG_H)
 #  include <config.h>

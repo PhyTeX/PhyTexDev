@@ -25,8 +25,7 @@
 #  define MIKTEXTRACEEXPORT
 #endif
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Util/StringUtil>
 #include <miktex/Util/Tokenizer>

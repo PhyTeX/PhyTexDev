@@ -32,6 +32,7 @@ include_directories(BEFORE
 set(public_include_directories
   ${CMAKE_CURRENT_BINARY_DIR}/include
   ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${spdlog_SOURCE_DIR}/include/spdlog
 )
 
 set(headers_no_ext

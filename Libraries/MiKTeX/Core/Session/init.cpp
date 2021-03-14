@@ -33,8 +33,7 @@
 #include <fstream>
 #include <iostream>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <fmt/ostr.h>
 
 // FIXME: must be the first MiKTeX header
 #include "core-version.h"

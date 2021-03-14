@@ -23,8 +23,7 @@
 
 #include <random>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/Directory>
 #include <miktex/Core/File>

@@ -21,8 +21,7 @@
 
 #include "config.h"
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/CommandLineBuilder>
 #include <miktex/Core/FileStream>

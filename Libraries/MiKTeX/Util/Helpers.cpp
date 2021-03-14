@@ -19,8 +19,8 @@
    Software Foundation, 59 Temple Place - Suite 330, Boston, MA
    02111-1307, USA. */
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
+#include <fmt/ostr.h>
 
 #define A7C88F5FBE5C45EB970B3796F331CD89
 #include "miktex/Util/config.h"

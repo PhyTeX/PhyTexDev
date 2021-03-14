@@ -28,7 +28,7 @@
 #include <chrono>
 #include <ratio>
 
-#include <fmt/format.h>
+#include <spdlog.h>
 
 #define DE9EF9059C8744B48A68345CD5A8A2C8
 #include <miktex/Trace/StopWatch.h>

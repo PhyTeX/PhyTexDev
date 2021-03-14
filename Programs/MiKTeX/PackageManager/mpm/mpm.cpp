@@ -40,8 +40,7 @@
 
 #include <signal.h>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <log4cxx/logger.h>
 #include <log4cxx/rollingfileappender.h>

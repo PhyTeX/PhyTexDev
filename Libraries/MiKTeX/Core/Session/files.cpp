@@ -26,8 +26,7 @@
 #include <fstream>
 #include <thread>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <fmt/ostr.h>
 
 #if defined(_MSC_VER)
 #  include <io.h>

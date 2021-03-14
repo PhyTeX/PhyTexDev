@@ -27,8 +27,7 @@
 #include <sstream>
 #include <thread>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Configuration/ConfigNames>
 #include <miktex/Core/Uri>

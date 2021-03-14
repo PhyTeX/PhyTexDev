@@ -21,8 +21,7 @@
 
 #include <unistd.h>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #define A7C88F5FBE5C45EB970B3796F331CD89
 #include "miktex/Util/config.h"

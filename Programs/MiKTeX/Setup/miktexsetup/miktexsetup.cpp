@@ -39,8 +39,7 @@
 #  pragma warning (pop)
 #endif
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <fmt/ostr.h>
 
 #include "miktexsetup-version.h"
 

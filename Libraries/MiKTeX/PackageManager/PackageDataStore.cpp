@@ -23,8 +23,7 @@
 
 #include <future>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <fmt/ostr.h>
 
 #include <miktex/Core/Directory>
 #include <miktex/Core/DirectoryLister>

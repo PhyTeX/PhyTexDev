@@ -23,8 +23,7 @@
 
 #if defined(HAVE_LIBCURL)
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include "CurlWebFile.h"
 #include "CurlWebSession.h"

@@ -23,8 +23,7 @@
 
 #include <locale>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/FileStream>
 #include <miktex/Core/Paths>

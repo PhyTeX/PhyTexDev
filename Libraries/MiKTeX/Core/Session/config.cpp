@@ -21,7 +21,7 @@
 
 #include "config.h"
 
-#include <fmt/format.h>
+#include <spdlog.h>
 
 #include <miktex/Core/BufferSizes>
 #include <miktex/Configuration/ConfigNames>

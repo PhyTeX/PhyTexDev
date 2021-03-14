@@ -23,8 +23,7 @@
 
 #include <thread>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <fcntl.h>
 #include <sys/file.h>

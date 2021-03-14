@@ -24,8 +24,7 @@
 #include <chrono>
 #include <thread>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/LockFile>
 #include <miktex/Core/Process>

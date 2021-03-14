@@ -23,8 +23,7 @@
 
 #include <memory>
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <spdlog.h>
 
 #include <miktex/Core/BZip2Stream>
 #include <miktex/Trace/StopWatch>

@@ -21,8 +21,7 @@
 
 #include "config.h"
 
-#include <fmt/format.h>
-#include <fmt/ostream.h>
+#include <fmt/ostr.h>
 
 #include <miktex/Configuration/ConfigNames>
 #include <miktex/Core/Paths>
