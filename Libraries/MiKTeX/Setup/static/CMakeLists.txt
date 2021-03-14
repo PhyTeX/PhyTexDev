@@ -46,7 +46,6 @@ target_link_libraries(${setup_lib_name}
     ${core_lib_name}
     ${loc_lib_name}
     ${mpm_lib_name}
-    ${nlohmann_json_lib_name}
 )
 
 target_link_libraries(${setup_lib_name} PRIVATE spdlog)

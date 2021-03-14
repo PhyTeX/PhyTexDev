@@ -62,7 +62,6 @@ target_link_libraries(${setup_dll_name}
     ${core_dll_name}
     ${loc_dll_name}
     ${mpm_dll_name}
-    ${nlohmann_json_dll_name}
 )
 
 target_link_libraries(${setup_dll_name} PRIVATE spdlog)
